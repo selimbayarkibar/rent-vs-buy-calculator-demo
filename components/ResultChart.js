@@ -60,12 +60,12 @@ export default function RentVsBuyGraph(props) {
       generalInflationRate = 3,
     } = props;
 
-    const r = interestRate / 100 / 12;
+    const r = (Number(interestRate) || 0) / 100 / 12;
     const n = loanTerm * 12;
     const loanAmount = purchasePrice - downPayment;
 
     function getMonthlyMortgagePayment() {
-      if (interestRate === 0) return loanAmount / n;
+      if (interestRate === 0 || r === 0) return loanAmount / n;
       return (loanAmount * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
     }
 
@@ -110,8 +110,12 @@ export default function RentVsBuyGraph(props) {
 
       const totalPaid = mortgagePayment * 12;
       const balanceAfterYear =
-        loanAmount *
-        ((Math.pow(1 + r, n) - Math.pow(1 + r, 12)) / (Math.pow(1 + r, n) - 1));
+        r === 0
+          ? loanAmount - (loanAmount / n) * 12
+          : loanAmount *
+            ((Math.pow(1 + r, n) - Math.pow(1 + r, 12)) /
+              (Math.pow(1 + r, n) - 1));
+
       const principalPaid = loanAmount - balanceAfterYear;
       const equity = downPayment + principalPaid;
 
@@ -148,56 +152,8 @@ export default function RentVsBuyGraph(props) {
   }, [props]);
 
   useEffect(() => {
-    if (props.onGraphDataChange) {
-      const {
-        monthlyRent,
-        securityDeposit,
-        brokerFee,
-        rentersInsurance,
-        rentIncrease,
-        purchasePrice,
-        downPayment,
-        downPaymentPercentage,
-        closingCosts,
-        propertyTaxRate,
-        hoaFees,
-        pmi,
-        utilityCosts,
-        maintenance,
-        homeownersInsurance,
-        interestRate,
-        loanTerm,
-        homeAppreciation,
-        sellingCosts,
-        marginalTaxRate,
-        generalInflationRate,
-      } = props;
-
-      props.onGraphDataChange(data);
-    }
-  }, [
-    props.monthlyRent,
-    props.securityDeposit,
-    props.brokerFee,
-    props.rentersInsurance,
-    props.rentIncrease,
-    props.purchasePrice,
-    props.downPayment,
-    props.downPaymentPercentage,
-    props.closingCosts,
-    props.propertyTaxRate,
-    props.hoaFees,
-    props.pmi,
-    props.utilityCosts,
-    props.maintenance,
-    props.homeownersInsurance,
-    props.interestRate,
-    props.loanTerm,
-    props.homeAppreciation,
-    props.sellingCosts,
-    props.marginalTaxRate,
-    props.generalInflationRate,
-  ]);
+    props.onGraphDataChange?.(data);
+  }, [JSON.stringify(props)]);
 
   const current = data.find((d) => d.year === activeYear);
   const recommendation = current.Rent < current.Buy ? "renting" : "buying";

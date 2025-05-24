@@ -40,7 +40,7 @@ export default function Home() {
   const searchParams = useSearchParams();
   const [formValues, setFormValues] = useState(DEFAULT_VALUES);
   const [activeYear, setActiveYear] = useState(3);
-  const [graphData, setGraphData] = useState(null);
+  const [graphData, setGraphData] = useState([]);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -64,7 +64,7 @@ export default function Home() {
     alert("Custom calculator link copied to clipboard!");
   }
 
-  const yearData = graphData?.find((d) => d.year === activeYear);
+  const yearData = graphData.find((d) => d.year === activeYear) || {};
 
   return (
     <main className="flex flex-col lg:flex-row p-4 lg:p-8 min-h-screen bg-gray-50">

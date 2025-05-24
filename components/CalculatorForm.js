@@ -267,7 +267,7 @@ export function CalculatorForm({ values, onChange }) {
             {/* Homeowners Insurance */}
             <div>
               <CurrencyPercentageGroup
-                label="Homeowner’s Insurance (yearly)"
+                label="Homeowners Insurance (yearly)"
                 currencyId="homeownersInsurance"
                 percentageId="homeownersInsurancePercentage"
                 currencyValue={values.homeownersInsurance}
