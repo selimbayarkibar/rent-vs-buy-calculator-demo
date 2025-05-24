@@ -151,9 +151,32 @@ export default function RentVsBuyGraph(props) {
     return chartData;
   }, [props]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     props.onGraphDataChange?.(data);
-  }, [JSON.stringify(props)]);
+  }, [
+    props.monthlyRent,
+    props.securityDeposit,
+    props.brokerFee,
+    props.rentersInsurance,
+    props.rentIncrease,
+    props.purchasePrice,
+    props.downPayment,
+    props.downPaymentPercentage,
+    props.closingCosts,
+    props.propertyTaxRate,
+    props.hoaFees,
+    props.pmi,
+    props.utilityCosts,
+    props.maintenance,
+    props.homeownersInsurance,
+    props.interestRate,
+    props.loanTerm,
+    props.homeAppreciation,
+    props.sellingCosts,
+    props.marginalTaxRate,
+    props.generalInflationRate,
+  ]);
 
   const current = data.find((d) => d.year === activeYear);
   const recommendation = current.Rent < current.Buy ? "renting" : "buying";

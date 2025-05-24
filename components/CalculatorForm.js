@@ -157,7 +157,7 @@ export function CalculatorForm({ values, onChange }) {
             <div className="relative">
               {/* Renters Insurance */}
               <Label htmlFor="rentersInsurance">
-                Renter's Insurance (monthly)
+                Renter&apos;s Insurance (monthly)
               </Label>
               <CurrencyInput
                 value={values.rentersInsurance}
