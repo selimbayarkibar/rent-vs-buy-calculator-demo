@@ -1,6 +1,7 @@
+// app/page.js
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { CalculatorForm } from "@/components/CalculatorForm";
 import RentVsBuyGraph from "@/components/ResultChart";
@@ -36,7 +37,7 @@ const DEFAULT_VALUES = {
   generalInflationRate: 3,
 };
 
-export default function Home() {
+function HomeContent() {
   const searchParams = useSearchParams();
   const [formValues, setFormValues] = useState(DEFAULT_VALUES);
   const [activeYear, setActiveYear] = useState(3);
@@ -68,12 +69,10 @@ export default function Home() {
 
   return (
     <main className="flex flex-col lg:flex-row p-4 lg:p-8 min-h-screen bg-gray-50">
-      {/* Calculator on top (mobile), left (desktop) */}
       <div className="w-full lg:w-1/3 mb-8 lg:mb-0">
         <CalculatorForm values={formValues} onChange={setFormValues} />
       </div>
 
-      {/* Graph + Table on bottom (mobile), right (desktop) */}
       <div className="w-full lg:w-2/3 flex flex-col text-gray-600 text-lg border-2 lg:ml-6">
         <div className="border-b border-gray-300 pb-20">
           <RentVsBuyGraph
@@ -106,5 +105,13 @@ export default function Home() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense fallback={<div className="p-8">Loading calculator...</div>}>
+      <HomeContent />
+    </Suspense>
   );
 }
