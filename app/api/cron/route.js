@@ -9,7 +9,6 @@ const fetchRate = async (seriesId) => {
   const url = `https://api.stlouisfed.org/fred/series/observations?series_id=${seriesId}&api_key=${FRED_API_KEY}&file_type=json&sort_order=desc&limit=1`;
   const res = await fetch(url);
   const json = await res.json();
-  console.log(json); // Log the full response
   const obs = json.observations?.[0];
 
   if (!obs || obs.value === ".") {
