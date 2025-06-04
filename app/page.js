@@ -7,34 +7,12 @@ import { CalculatorForm } from "@/components/CalculatorForm";
 import RentVsBuyGraph from "@/components/ResultChart";
 import { Button } from "@/components/ui/button";
 import ResultsTable from "@/components/ResultsTable";
+import defaultValues from "@/data/defaultValues.json";
+import defaultRates from "@/data/defaultRates.json";
 
 const DEFAULT_VALUES = {
-  monthlyRent: 2000,
-  securityDeposit: 1,
-  rentersInsurance: 12,
-  brokerFee: 0,
-  rentIncrease: 3,
-  purchasePrice: 415000,
-  downPayment: 37350,
-  downPaymentPercentage: 9,
-  loanTerm: "30",
-  interestRate: 7.068,
-  closingCosts: 6,
-  propertyTaxRate: 1.5,
-  homeownersInsurance: 2666.88,
-  homeownersInsurancePercentage: 0.64,
-  hoaFees: 0,
-  pmi: 0.98,
-  utilityCosts: 100,
-  maintenance: 6225,
-  maintenancePercentage: 1.5,
-  sellingCosts: 6,
-  homeAppreciation: 4.5,
-  taxFilingStatus: "individual",
-  rateOfReturn: 6,
-  marginalTaxRate: 22,
-  capitalGainsTaxRate: 15,
-  generalInflationRate: 3,
+  ...defaultValues,
+  interestRate: defaultRates.rates["30yr_fixed"],
 };
 
 function HomeContent() {
@@ -103,6 +81,12 @@ function HomeContent() {
             Reset to Default Values
           </Button>
         </div>
+
+        <p className="text-sm text-center text-gray-700 mt-2 px-4">
+          * Interest rates last updated on{" "}
+          <span className="font-medium">{defaultRates.lastUpdated}</span>{" "}
+          (source: FRED)
+        </p>
       </div>
     </main>
   );
