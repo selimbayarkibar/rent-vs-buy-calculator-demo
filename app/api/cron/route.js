@@ -48,7 +48,7 @@ export async function GET(req) {
       lastUpdated: mergeDateAndTime(r30.date), // FRED's date + current time
     };
 
-    const filePath = path.join(process.cwd(), "app/data/defaultRates.json");
+    const filePath = "/tmp/defaultRates.json";
     await writeFile(filePath, JSON.stringify(data, null, 2));
 
     return NextResponse.json({ success: true, updated: data });

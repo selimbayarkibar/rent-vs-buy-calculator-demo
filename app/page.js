@@ -1,4 +1,3 @@
-// app/page.js
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
@@ -8,27 +7,57 @@ import RentVsBuyGraph from "@/components/ResultChart";
 import { Button } from "@/components/ui/button";
 import ResultsTable from "@/components/ResultsTable";
 import defaultValues from "@/data/defaultValues.json";
-import defaultRates from "@/data/defaultRates.json";
 
-const DEFAULT_VALUES = {
-  ...defaultValues,
-  interestRate: defaultRates.rates["30yr_fixed"],
+const fallbackRates = {
+  rates: {
+    "30yr_fixed": 7.068,
+    "15yr_fixed": 6.03,
+  },
+  lastUpdated: "N/A",
 };
 
 function HomeContent() {
   const searchParams = useSearchParams();
-  const [formValues, setFormValues] = useState(DEFAULT_VALUES);
+  const [formValues, setFormValues] = useState(null);
   const [activeYear, setActiveYear] = useState(3);
   const [graphData, setGraphData] = useState([]);
+  const [rateMeta, setRateMeta] = useState(fallbackRates);
   const pathname = usePathname();
   const router = useRouter();
 
   useEffect(() => {
-    const values = { ...DEFAULT_VALUES };
-    for (const [key, value] of searchParams.entries()) {
-      values[key] = isNaN(value) ? value : parseFloat(value);
+    async function loadDefaults() {
+      try {
+        const res = await fetch("/api/rates");
+        const rateData = await res.json();
+
+        const base = {
+          ...defaultValues,
+          interestRate:
+            rateData.rates?.["30yr_fixed"] ?? fallbackRates.rates["30yr_fixed"],
+        };
+
+        setRateMeta(rateData);
+        const values = { ...base };
+
+        for (const [key, value] of searchParams.entries()) {
+          values[key] = isNaN(value) ? value : parseFloat(value);
+        }
+
+        setFormValues(values);
+      } catch (err) {
+        console.error("Failed to load rates, using fallback", err);
+        const values = {
+          ...defaultValues,
+          interestRate: fallbackRates.rates["30yr_fixed"],
+        };
+
+        setFormValues(values);
+        setRateMeta(fallbackRates);
+      }
     }
-    setFormValues(values);
+
+    loadDefaults();
   }, [searchParams]);
 
   function handleShare() {
@@ -41,6 +70,10 @@ function HomeContent() {
     const url = `${window.location.origin}${pathname}?${params.toString()}`;
     navigator.clipboard.writeText(url);
     alert("Custom calculator link copied to clipboard!");
+  }
+
+  if (!formValues) {
+    return <div className="p-8">Loading calculator...</div>;
   }
 
   const yearData = graphData.find((d) => d.year === activeYear) || {};
@@ -72,7 +105,10 @@ function HomeContent() {
           </Button>
           <Button
             onClick={() => {
-              setFormValues(DEFAULT_VALUES);
+              setFormValues({
+                ...defaultValues,
+                interestRate: rateMeta.rates["30yr_fixed"],
+              });
               router.push("/");
             }}
             variant="outline"
@@ -84,8 +120,8 @@ function HomeContent() {
 
         <p className="text-sm text-center text-gray-700 mt-2 px-4">
           * Interest rates last updated on{" "}
-          <span className="font-medium">{defaultRates.lastUpdated}</span>{" "}
-          (source: FRED)
+          <span className="font-medium">{rateMeta.lastUpdated}</span> (source:
+          FRED)
         </p>
       </div>
     </main>
