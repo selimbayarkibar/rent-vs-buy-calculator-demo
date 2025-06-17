@@ -112,11 +112,22 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+.recharts-sector:focus,
+.recharts-legend-item:focus {
+  outline: none;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+  }
+  input:focus,
+  textarea:focus,
+  select:focus,
+  button:focus {
+    @apply outline-none;
   }
 }

@@ -3,9 +3,6 @@
 export default function ResultsTable({ activeYear, yearData }) {
   if (!yearData) return null;
 
-  const difference = Math.abs(
-    yearData.Buy - yearData.Rent || 0
-  ).toLocaleString();
   const cheaper = yearData.Rent < yearData.Buy ? "Renting" : "Buying";
   const moreExpensive = cheaper === "Renting" ? "buying" : "renting";
 

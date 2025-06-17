@@ -1,0 +1,15 @@
+{
+  "homePrice": 300000,
+  "downPayment": 60000,
+  "downPaymentPercentage": 20,
+  "interestRate": 7,
+  "loanTerm": "30",
+  "startDate": "2025-06",
+  "propertyTaxes": 4500,
+  "propertyTaxesPercentage": 1.5,
+  "homeownersInsurance": 1920,
+  "homeownersInsurancePercentage": 0.64,
+  "hoaFees": 0,
+  "pmi": 0,
+  "pmiPercentage": 0
+}
