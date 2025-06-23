@@ -9,7 +9,7 @@ import MortgageTable from "@/components/Mortgage/MortgageTable";
 import NavBar from "@/components/NavBar";
 import defaultMortgageValues from "@/data/defaultMortgageValues.json";
 import { getCalculatedValues } from "@/lib/mortgage/mortgageCalculations";
-// import { useDebouncedCallback } from "use-debounce";
+import { handleShare } from "@/lib/shareUtils";
 
 const fallbackRates = {
   rates: {
@@ -26,19 +26,6 @@ function MortgageContent() {
   const [rateMeta, setRateMeta] = useState(fallbackRates);
   const [formValues, setFormValues] = useState(null);
   const [activeView, setActiveView] = useState("chart");
-
-  //   const debouncedUpdateUrl = useDebouncedCallback((updatedValues) => {
-  //     const params = new URLSearchParams();
-  //     Object.entries(updatedValues).forEach(([key, value]) => {
-  //       if (value !== undefined && value !== "") {
-  //         params.set(key, value);
-  //       }
-  //     });
-  //     router.replace(`${pathname}?${params.toString()}`, {
-  //       scroll: false,
-  //       shallow: true,
-  //     });
-  //   }, 400);
 
   useEffect(() => {
     async function loadDefaults() {
@@ -81,43 +68,12 @@ function MortgageContent() {
     loadDefaults();
   }, [searchParams]);
 
-  //   // Update URL search params when form values change
-  //   useEffect(() => {
-  //     if (!formValues) return;
-
-  //     const params = new URLSearchParams();
-  //     Object.entries(formValues).forEach(([key, value]) => {
-  //       if (value !== undefined && value !== "") {
-  //         params.set(key, value);
-  //       }
-  //     });
-
-  //     const newUrl = `${pathname}?${params.toString()}`;
-  //     router.replace(`${pathname}?${params.toString()}`, undefined, {
-  //       shallow: true,
-  //     });
-  //   }, [formValues]);
-
-  const handleShare = () => {
-    const params = new URLSearchParams();
-    Object.entries(formValues).forEach(([key, value]) => {
-      if (value !== undefined && value !== "") {
-        params.set(key, value);
-      }
-    });
-    const url = `${window.location.origin}${pathname}?${params.toString()}`;
-    navigator.clipboard.writeText(url);
-    alert("Custom mortgage link copied to clipboard!");
-  };
-
-  //   useEffect(() => {
-  //     if (formValues) {
-  //       debouncedUpdateUrl(formValues);
-  //     }
-  //   }, [formValues]);
-
   if (!formValues) {
-    return <div className="p-8">Loading calculator...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen pt-16">
+        Loading calculator...
+      </div>
+    );
   }
 
   const calculatedValues = getCalculatedValues(formValues);
@@ -177,7 +133,7 @@ function MortgageContent() {
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center py-6 border-t border-gray-200 gap-4 mt-8">
             <Button
-              onClick={handleShare}
+              onClick={() => handleShare(formValues, pathname)}
               className="bg-blue-600 hover:bg-blue-700 hover:cursor-pointer"
             >
               Share Custom Values
@@ -213,7 +169,9 @@ export default function MortgagePage() {
   return (
     <>
       <NavBar />
-      <Suspense fallback={<div className="p-8">Loading calculator...</div>}>
+      <Suspense
+        fallback={<div className="p-8 pt-24">Loading calculator...</div>}
+      >
         <MortgageContent />
       </Suspense>
     </>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useMemo, useEffect } from "react";
 import {
   LineChart,
   Line,

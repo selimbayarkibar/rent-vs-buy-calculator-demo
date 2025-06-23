@@ -1,4 +1,3 @@
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import {
@@ -118,7 +117,7 @@ export function CalculatorForm({ values, onChange }) {
   }
 
   return (
-    <div className="space-y-6 max-w-md bg-[#ede8db]">
+    <div className="space-y-6 bg-[#ede8db]">
       <div className="border p-4 rounded-lg">
         {/* Renting Section */}
         <h2 className="text-lg font-semibold mb-4">Renting</h2>

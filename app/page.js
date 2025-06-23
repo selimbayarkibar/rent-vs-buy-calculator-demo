@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import ResultsTable from "@/components/RentVsBuy/ResultsTable";
 import defaultValues from "@/data/defaultValues.json";
 import NavBar from "@/components/NavBar";
+import { handleShare } from "./lib/shareUtils";
 
 const fallbackRates = {
   rates: {
@@ -61,35 +62,12 @@ function HomeContent() {
     loadDefaults();
   }, [searchParams]);
 
-  // // Update URL search params when form values change
-  // useEffect(() => {
-  //   if (!formValues) return;
-
-  //   const params = new URLSearchParams();
-  //   Object.entries(formValues).forEach(([key, value]) => {
-  //     if (value !== undefined && value !== "") {
-  //       params.set(key, value);
-  //     }
-  //   });
-
-  //   const newUrl = `${pathname}?${params.toString()}`;
-  //   router.replace(newUrl); // Use replace to avoid cluttering history
-  // }, [formValues]);
-
-  function handleShare() {
-    const params = new URLSearchParams();
-    Object.entries(formValues).forEach(([key, value]) => {
-      if (value !== undefined && value !== "") {
-        params.set(key, value);
-      }
-    });
-    const url = `${window.location.origin}${pathname}?${params.toString()}`;
-    navigator.clipboard.writeText(url);
-    alert("Custom calculator link copied to clipboard!");
-  }
-
   if (!formValues) {
-    return <div className="p-8">Loading calculator...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen pt-16">
+        Loading calculator...
+      </div>
+    );
   }
 
   const yearData = graphData.find((d) => d.year === activeYear) || {};
@@ -123,7 +101,7 @@ function HomeContent() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center py-4 border-t border-gray-200 gap-4">
             <Button
-              onClick={handleShare}
+              onClick={() => handleShare(formValues, pathname)}
               className="bg-blue-600 hover:cursor-pointer hover:bg-blue-700"
             >
               Share Custom Values
@@ -158,7 +136,9 @@ export default function Page() {
   return (
     <>
       <NavBar />
-      <Suspense fallback={<div className="p-8">Loading calculator...</div>}>
+      <Suspense
+        fallback={<div className="p-8 pt-24">Loading calculator...</div>}
+      >
         <HomeContent />
       </Suspense>
     </>

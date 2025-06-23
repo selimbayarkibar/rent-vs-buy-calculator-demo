@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        beige: "#f5f5dc",
+        beige: "#ede8db",
+        customViolet: "#801deb",
       },
     },
   },

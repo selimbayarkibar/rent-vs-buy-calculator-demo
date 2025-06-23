@@ -18,14 +18,14 @@ export default function NavBar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-4 py-3 flex justify-between items-center shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#801DEB] border-b border-gray-200 px-4 py-3 flex justify-between items-center shadow-sm">
       <div className="flex gap-4">
         <button
           onClick={() => handleNavClick("/")}
           className={`text-md font-medium transition-colors ${
             pathname === "/"
-              ? "text-blue-600 hover:cursor-pointer"
-              : "text-gray-700 hover:text-blue-400 hover:cursor-pointer"
+              ? "text-black hover:cursor-pointer"
+              : "text-white hover:text-[#D0A4FF] hover:cursor-pointer"
           }`}
         >
           Rent vs Buy Calculator
@@ -34,11 +34,31 @@ export default function NavBar() {
           onClick={() => handleNavClick("/mortgage")}
           className={`text-md font-medium transition-colors ${
             pathname === "/mortgage"
-              ? "text-blue-600 hover:cursor-pointer"
-              : "text-gray-700 hover:text-blue-400 hover:cursor-pointer"
+              ? "text-black hover:cursor-pointer"
+              : "text-white hover:text-[#D0A4FF] hover:cursor-pointer"
           }`}
         >
           Mortgage Calculator
+        </button>
+        <button
+          onClick={() => handleNavClick("/sell-house")}
+          className={`text-md font-medium transition-colors ${
+            pathname === "/sell-house"
+              ? "text-black hover:cursor-pointer"
+              : "text-white hover:text-[#D0A4FF] hover:cursor-pointer"
+          }`}
+        >
+          Sell Your House Calculator
+        </button>
+        <button
+          onClick={() => handleNavClick("/sell-business")}
+          className={`text-md font-medium transition-colors ${
+            pathname === "/sell-business"
+              ? "text-black hover:cursor-pointer"
+              : "text-white hover:text-[#D0A4FF] hover:cursor-pointer"
+          }`}
+        >
+          Sell Your Business Calculator
         </button>
       </div>
 
