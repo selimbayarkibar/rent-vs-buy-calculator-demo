@@ -1,4 +1,3 @@
-// app/api/rates/route.js
 import { readFile } from "fs/promises";
 
 export async function GET() {
@@ -11,10 +10,10 @@ export async function GET() {
     return Response.json(
       {
         rates: {
-          "30yr_fixed": 6.85,
+          "30yr_fixed": 6.77,
           "15yr_fixed": 5.89,
         },
-        lastUpdated: "2025-06-05 11:15:11",
+        lastUpdated: "2025-06-26 18:09:12",
       },
       { status: 200 }
     );
