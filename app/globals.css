@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Calistoga&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -130,4 +131,29 @@
   button:focus {
     @apply outline-none;
   }
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("/fonts/ProximaNova-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Sophia Pro";
+  src: url("/fonts/SophiaPro-Regular.woff2") format("woff2");
+}
+
+h1 {
+  font-family: "Calistoga", serif;
+}
+
+h2,
+p,
+html,
+body {
+  font-family: "Proxima Nova", sans-serif;
+}
+
+.logo {
+  font-family: "Sophia Pro", sans-serif;
 }

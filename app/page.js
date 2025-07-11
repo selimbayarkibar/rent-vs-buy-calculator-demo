@@ -1,146 +1,95 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { CalculatorForm } from "@/components/RentVsBuy/CalculatorForm";
-import RentVsBuyGraph from "@/components/RentVsBuy/ResultChart";
-import { Button } from "@/components/ui/button";
-import ResultsTable from "@/components/RentVsBuy/ResultsTable";
-import defaultValues from "@/data/defaultValues.json";
-import NavBar from "@/components/NavBar";
-import { handleShare } from "./lib/shareUtils";
+import Image from "next/image";
+import Link from "next/link";
+import dynamic from "next/dynamic";
+import Card from "@/components/ui/Card";
 
-const fallbackRates = {
-  rates: {
-    "30yr_fixed": 7.068,
-    "15yr_fixed": 6.03,
+const MotionDiv = dynamic(
+  () => import("framer-motion").then((fm) => fm.motion.div),
+  { ssr: false }
+);
+
+const calculators = [
+  {
+    title: "Sell Your House Calculator",
+    description: "Calculate potential savings with V when selling your house.",
+    href: "/sell-house",
+    image: "/assets/sell-house.png",
   },
-  lastUpdated: "N/A",
-};
+  {
+    title: "Sell Your Business Calculator",
+    description:
+      "Calculate potential savings with V when selling your business.",
+    href: "/sell-business",
+    image: "/assets/sell-business.png",
+  },
+  {
+    title: "Small Business Valuation Calculator",
+    description:
+      "Get an estimated valuation range for your business based on industry standards and key metrics.",
+    href: "/valuation",
+    image: "/assets/valuation.png",
+  },
+];
 
-function HomeContent() {
-  const searchParams = useSearchParams();
-  const [formValues, setFormValues] = useState(null);
-  const [activeYear, setActiveYear] = useState(3);
-  const [graphData, setGraphData] = useState([]);
-  const [rateMeta, setRateMeta] = useState(fallbackRates);
-  const pathname = usePathname();
-  const router = useRouter();
+const fadeIn = (delay) => ({
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { delay, duration: 0.6, ease: "easeOut" },
+  },
+});
 
-  useEffect(() => {
-    async function loadDefaults() {
-      try {
-        const res = await fetch("/api/rates");
-        const rateData = await res.json();
-
-        const base = {
-          ...defaultValues,
-          interestRate:
-            rateData.rates?.["30yr_fixed"] ?? fallbackRates.rates["30yr_fixed"],
-        };
-
-        setRateMeta(rateData);
-        const values = { ...base };
-
-        for (const [key, value] of searchParams.entries()) {
-          values[key] = isNaN(value) ? value : parseFloat(value);
-        }
-
-        setFormValues(values);
-      } catch (err) {
-        console.error("Failed to load rates, using fallback", err);
-        const values = {
-          ...defaultValues,
-          interestRate: fallbackRates.rates["30yr_fixed"],
-        };
-
-        setFormValues(values);
-        setRateMeta(fallbackRates);
-      }
-    }
-
-    loadDefaults();
-  }, [searchParams]);
-
-  if (!formValues) {
-    return (
-      <div className="flex justify-center items-center h-screen pt-16">
-        Loading calculator...
-      </div>
-    );
-  }
-
-  const yearData = graphData.find((d) => d.year === activeYear) || {};
-
+export default function Home() {
   return (
-    <main className="p-4 lg:p-8 min-h-screen mt-12">
-      {/* Page Title */}
-      <h1 className="text-2xl font-semibold mb-6 text-left">
-        Rent vs Buy Calculator
-      </h1>
+    <main className="min-h-screen py-16 px-4 lg:px-24 bg-[#f9fbfc]">
+      <div className="text-center mb-12">
+        <Image
+          src="/assets/Logotype-color.png"
+          alt="Vicunous Logo"
+          width={200}
+          height={64}
+          className="mx-auto mb-4"
+        />
+        <h1 className="text-3xl font-bold text-gray-800">
+          Vicunous Calculators
+        </h1>
+        <p className="text-gray-600 text-lg mt-2">
+          Access calculators and educational content to optimize your wealth
+          management
+        </p>
+      </div>
 
-      {/* Main Layout */}
-      <div className="flex flex-col lg:flex-row">
-        {/* Calculator Form */}
-        <div className="w-full lg:w-1/3 mb-8 lg:mb-0">
-          <CalculatorForm values={formValues} onChange={setFormValues} />
-        </div>
-
-        {/* Graph + Table */}
-        <div className="w-full lg:w-2/3 flex flex-col text-gray-600 text-lg border-2 lg:ml-6">
-          <div className="border-b border-gray-300 pb-20">
-            <RentVsBuyGraph
-              {...formValues}
-              activeYear={activeYear}
-              onYearChange={setActiveYear}
-              onGraphDataChange={setGraphData}
-            />
-          </div>
-
-          <ResultsTable activeYear={activeYear} yearData={yearData} />
-
-          <div className="flex flex-col sm:flex-row items-center justify-center py-4 border-t border-gray-200 gap-4">
-            <Button
-              onClick={() => handleShare(formValues, pathname)}
-              className="bg-blue-600 hover:cursor-pointer hover:bg-blue-700"
-            >
-              Share Custom Values
-            </Button>
-            <Button
-              onClick={() => {
-                setFormValues({
-                  ...defaultValues,
-                  interestRate: rateMeta.rates["30yr_fixed"],
-                });
-                router.push("/");
-              }}
-              variant="outline"
-              className="hover:cursor-pointer"
-            >
-              Reset to Default Values
-            </Button>
-          </div>
-
-          <p className="text-sm text-center text-gray-700 mt-2 px-4">
-            * Interest rates last updated on{" "}
-            <span className="font-medium">{rateMeta.lastUpdated} UTC</span>{" "}
-            (source: FRED)
-          </p>
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {calculators.map((calc, index) => (
+          <MotionDiv
+            key={calc.title}
+            variants={fadeIn(index * 0.2)}
+            initial="hidden"
+            animate="show"
+            whileHover={{ scale: 1.05 }}
+            className="transform transition duration-300"
+          >
+            <Card href={calc.href}>
+              <div className="flex justify-center mb-4">
+                <Image
+                  src={calc.image}
+                  alt={calc.title}
+                  width={80}
+                  height={80}
+                  className="rounded-md"
+                />
+              </div>
+              <h2 className="text-xl font-semibold mb-2 text-gray-900 text-center">
+                {calc.title}
+              </h2>
+              <p className="text-gray-600 mb-6 text-sm">{calc.description}</p>
+            </Card>
+          </MotionDiv>
+        ))}
       </div>
     </main>
-  );
-}
-
-export default function Page() {
-  return (
-    <>
-      <NavBar />
-      <Suspense
-        fallback={<div className="p-8 pt-24">Loading calculator...</div>}
-      >
-        <HomeContent />
-      </Suspense>
-    </>
   );
 }

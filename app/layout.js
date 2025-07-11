@@ -12,8 +12,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Demo Rent vs Buy Calculator",
-  description: "Interactive calculator to compare renting vs buying a home",
+  title: "Vicunous Calculators",
+  description:
+    "Powerful, AI-enhanced calculators for real estate, business sales, and small business valuation.",
+  icons: {
+    icon: "/assets/Favicon_32x32.png",
+  },
 };
 
 export default function RootLayout({ children }) {

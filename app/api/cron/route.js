@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { writeFile } from "fs/promises";
-import path from "path";
 
 const FRED_API_KEY = process.env.FRED_API_KEY;
 const CRON_SECRET = process.env.CRON_SECRET;
@@ -17,7 +16,7 @@ const fetchRate = async (seriesId) => {
 
   return {
     rate: parseFloat(obs.value),
-    date: obs.date, // FRED’s date (YYYY-MM-DD)
+    date: obs.date,
   };
 };
 
@@ -45,11 +44,11 @@ export async function GET(req) {
         "30yr_fixed": r30.rate,
         "15yr_fixed": r15.rate,
       },
-      lastUpdated: mergeDateAndTime(r30.date), // FRED's date + current time
+      lastUpdated: mergeDateAndTime(r30.date),
     };
 
-    const filePath = "/tmp/defaultRates.json";
-    await writeFile(filePath, JSON.stringify(data, null, 2));
+    // Save to temporary file
+    await writeFile("/tmp/defaultRates.json", JSON.stringify(data, null, 2));
 
     return NextResponse.json({ success: true, updated: data });
   } catch (error) {
