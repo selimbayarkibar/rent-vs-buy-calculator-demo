@@ -53,7 +53,7 @@ export default function ComparisonBarChart({ results }) {
 
   return (
     <div className="w-full h-[350px] mt-4">
-      <h2 className="text-xl font-semibold text-center mb-4">
+      <h2 className="text-sm sm:text-md md:text-lg lg:text-xl font-semibold text-center mb-4 whitespace-nowrap">
         {label} Proceeds: With V vs Without V
       </h2>
       <ResponsiveContainer width="100%" height="100%">

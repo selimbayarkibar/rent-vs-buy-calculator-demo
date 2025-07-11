@@ -44,7 +44,7 @@ const fadeIn = (delay) => ({
 
 export default function Home() {
   return (
-    <main className="min-h-screen py-16 px-4 lg:px-24 bg-[#f9fbfc]">
+    <main className="min-h-screen py-6 px-4 lg:px-24 bg-[#f9fbfc]">
       <div className="text-center mb-12">
         <Image
           src="/assets/Logotype-color.png"
@@ -62,7 +62,8 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Responsive Calculator Layout */}
+      <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch">
         {calculators.map((calc, index) => (
           <MotionDiv
             key={calc.title}
@@ -70,7 +71,7 @@ export default function Home() {
             initial="hidden"
             animate="show"
             whileHover={{ scale: 1.05 }}
-            className="transform transition duration-300"
+            className="transform transition duration-300 w-full lg:w-1/3"
           >
             <Card href={calc.href}>
               <div className="flex justify-center mb-4">
@@ -85,7 +86,9 @@ export default function Home() {
               <h2 className="text-xl font-semibold mb-2 text-gray-900 text-center">
                 {calc.title}
               </h2>
-              <p className="text-gray-600 mb-6 text-sm">{calc.description}</p>
+              <p className="text-gray-600 mb-6 text-sm text-center">
+                {calc.description}
+              </p>
             </Card>
           </MotionDiv>
         ))}

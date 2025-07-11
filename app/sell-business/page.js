@@ -38,22 +38,24 @@ function SellBusinessContent() {
   const results = calculateSellBusinessResults(formValues);
 
   return (
-    <main className="p-8 min-h-screen my-12 ">
+    <main className="px-4 pb-8 min-h-screen pt-24 sm:pt-20">
       {/* Page Title */}
       <h1 className="text-2xl font-semibold mb-6 text-left">
         Sell Your Business Calculator
       </h1>
 
       {/* Main Layout */}
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex flex-col md:flex-row">
         {/* Form */}
         <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
           <SellBusinessForm values={formValues} onChange={setFormValues} />
-          <SellBusinessResults results={results} />
+          <div className="border-y border-gray-200 mt-6 pb-6 md:border-b-0">
+            <SellBusinessResults results={results} />
+          </div>
         </div>
 
         {/* Output Section */}
-        <div className="w-full lg:w-1/2 flex flex-col text-md border-2 lg:ml-6 px-4 py-6">
+        <div className="w-full h-full lg:w-1/2 flex flex-col text-md border-2 md:ml-6 px-4 py-6">
           {/* Placeholder */}
           <div className="text-center p-4">
             <ComparisonBarChart
@@ -66,7 +68,7 @@ function SellBusinessContent() {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center py-6 border-t border-gray-200 gap-4 mt-8">
+          <div className="flex flex-col md:flex-row items-center border-t justify-center py-6 border-gray-200 gap-4 mt-8">
             <Button
               onClick={() => handleShare(formValues, pathname)}
               className="bg-blue-600 hover:bg-blue-700 hover:cursor-pointer"

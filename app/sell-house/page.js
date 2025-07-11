@@ -39,24 +39,24 @@ function SellHouseContent() {
   const results = calculateSellHouseResults(formValues);
 
   return (
-    <main className="p-8 min-h-screen my-12 ">
+    <main className="px-4 pb-8 min-h-screen pt-24 sm:pt-20">
       {/* Page Title */}
       <h1 className="text-2xl font-semibold mb-6 text-left">
         Sell Your House Calculator
       </h1>
 
       {/* Main Layout */}
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex flex-col md:flex-row">
         {/* Form */}
         <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
           <SellHouseForm values={formValues} onChange={setFormValues} />
-          <div className="border-y border-gray-200 mt-6 pb-6 lg:border-b-0">
+          <div className="border-y border-gray-200 mt-6 pb-6 md:border-b-0">
             <SellHouseResults results={results} />
           </div>
         </div>
 
         {/* Output Section */}
-        <div className="w-full lg:w-1/2 flex flex-col text-md border-2 lg:ml-6 px-4 py-6">
+        <div className="w-full lg:w-1/2 flex flex-col text-md border-2 md:ml-6 px-4 py-6">
           {/* Placeholder */}
           <div className="text-center p-4">
             <ComparisonBarChart
