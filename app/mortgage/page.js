@@ -1,15 +1,14 @@
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import { useSearchParams } from "next/navigation";
 import MortgageForm from "@/components/Mortgage/MortgageForm";
 import MortgageChart from "@/components/Mortgage/MortgageChart";
 import MortgageTable from "@/components/Mortgage/MortgageTable";
 import NavBar from "@/components/NavBar";
 import defaultMortgageValues from "@/data/defaultMortgageValues.json";
 import { getCalculatedValues } from "@/lib/mortgage/mortgageCalculations";
-import { handleShare } from "@/lib/shareUtils";
+import ActionButtons from "@/components/ActionButtons";
 
 const fallbackRates = {
   rates: {
@@ -21,8 +20,6 @@ const fallbackRates = {
 
 function MortgageContent() {
   const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const router = useRouter();
   const [rateMeta, setRateMeta] = useState(fallbackRates);
   const [formValues, setFormValues] = useState(null);
   const [activeView, setActiveView] = useState("chart");
@@ -132,25 +129,14 @@ function MortgageContent() {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center py-6 border-t border-gray-200 gap-4 mt-8">
-            <Button
-              onClick={() => handleShare(formValues, pathname)}
-              className="bg-blue-600 hover:bg-blue-700 hover:cursor-pointer"
-            >
-              Share Custom Values
-            </Button>
-            <Button
-              onClick={() => {
-                setFormValues({
-                  ...defaultMortgageValues,
-                  interestRate: rateMeta.rates["30yr_fixed"],
-                });
-                router.push("/mortgage");
+            <ActionButtons
+              formValues={formValues}
+              setFormValues={setFormValues}
+              resetDefaults={{
+                ...defaultMortgageValues,
+                interestRate: rateMeta.rates["30yr_fixed"],
               }}
-              variant="outline"
-              className="hover:cursor-pointer"
-            >
-              Reset to Defaults
-            </Button>
+            />
           </div>
 
           {/* Footnote */}

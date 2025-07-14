@@ -1,20 +1,17 @@
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import { useSearchParams } from "next/navigation";
 import NavBar from "@/components/NavBar";
 import defaultSellBusinessValues from "@/data/defaultSellBusinessValues.json";
 import calculateSellBusinessResults from "@/lib/sellBusiness/sellBusinessCalculations";
 import SellBusinessForm from "@/components/SellBusiness/SellBusinessForm";
 import SellBusinessResults from "@/components/SellBusiness/SellBusinessResults";
-import { handleShare } from "@/lib/shareUtils";
 import ComparisonBarChart from "@/components/SellChart/ComparisonBarChart";
+import ActionButtons from "@/components/ActionButtons";
 
 function SellBusinessContent() {
   const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const router = useRouter();
   const [formValues, setFormValues] = useState(null);
 
   useEffect(() => {
@@ -69,24 +66,11 @@ function SellBusinessContent() {
 
           {/* Action Buttons */}
           <div className="flex flex-col md:flex-row items-center border-t justify-center py-6 border-gray-200 gap-4 mt-8">
-            <Button
-              onClick={() => handleShare(formValues, pathname)}
-              className="bg-blue-600 hover:bg-blue-700 hover:cursor-pointer"
-            >
-              Share Custom Values
-            </Button>
-            <Button
-              onClick={() => {
-                setFormValues({
-                  ...defaultSellBusinessValues,
-                });
-                router.push("/sell-business");
-              }}
-              variant="outline"
-              className="hover:cursor-pointer"
-            >
-              Reset to Defaults
-            </Button>
+            <ActionButtons
+              formValues={formValues}
+              setFormValues={setFormValues}
+              resetDefaults={defaultSellBusinessValues}
+            />
           </div>
 
           {/* Footnote */}

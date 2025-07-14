@@ -1,14 +1,13 @@
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { CalculatorForm } from "@/components/RentVsBuy/CalculatorForm";
 import RentVsBuyGraph from "@/components/RentVsBuy/ResultChart";
-import { Button } from "@/components/ui/button";
 import ResultsTable from "@/components/RentVsBuy/ResultsTable";
 import defaultValues from "@/data/defaultValues.json";
 import NavBar from "@/components/NavBar";
-import { handleShare } from "../lib/shareUtils";
+import ActionButtons from "@/components/ActionButtons";
 
 const fallbackRates = {
   rates: {
@@ -24,8 +23,6 @@ function HomeContent() {
   const [activeYear, setActiveYear] = useState(3);
   const [graphData, setGraphData] = useState([]);
   const [rateMeta, setRateMeta] = useState(fallbackRates);
-  const pathname = usePathname();
-  const router = useRouter();
 
   useEffect(() => {
     async function loadDefaults() {
@@ -100,25 +97,14 @@ function HomeContent() {
           <ResultsTable activeYear={activeYear} yearData={yearData} />
 
           <div className="flex flex-col sm:flex-row items-center justify-center py-4 border-t border-gray-200 gap-4">
-            <Button
-              onClick={() => handleShare(formValues, pathname)}
-              className="bg-blue-600 hover:cursor-pointer hover:bg-blue-700"
-            >
-              Share Custom Values
-            </Button>
-            <Button
-              onClick={() => {
-                setFormValues({
-                  ...defaultValues,
-                  interestRate: rateMeta.rates["30yr_fixed"],
-                });
-                router.push("/");
+            <ActionButtons
+              formValues={formValues}
+              setFormValues={setFormValues}
+              resetDefaults={{
+                ...defaultValues,
+                interestRate: rateMeta.rates["30yr_fixed"],
               }}
-              variant="outline"
-              className="hover:cursor-pointer"
-            >
-              Reset to Default Values
-            </Button>
+            />
           </div>
 
           <p className="text-sm text-center text-gray-700 mt-2 px-4">

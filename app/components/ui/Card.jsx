@@ -6,7 +6,7 @@ export default function Card({ children, href, className = "" }) {
       <div className="flex-1">{children}</div>
       {href && (
         <a href={href} className="mt-6 block">
-          <button className="w-full bg-[#801deb] text-white py-2 px-4 rounded-md hover:bg-[#631ba3] transition hover:cursor-pointer">
+          <button className="w-full bg-[#801deb] text-white py-2 px-4 rounded-md hover:bg-[#5400b0] transition hover:cursor-pointer">
             Open Calculator
           </button>
         </a>

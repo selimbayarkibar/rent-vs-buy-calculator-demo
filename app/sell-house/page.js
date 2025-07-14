@@ -1,21 +1,17 @@
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import MortgageTable from "@/components/Mortgage/MortgageTable";
+import { useSearchParams } from "next/navigation";
 import NavBar from "@/components/NavBar";
 import defaultSellHouseValues from "@/data/defaultSellHouseValues.json";
 import calculateSellHouseResults from "@/lib/sellHouse/sellHouseCalculations";
 import SellHouseForm from "@/components/SellHouse/SellHouseForm";
 import SellHouseResults from "@/components/SellHouse/SellHouseResults";
-import { handleShare } from "@/lib/shareUtils";
 import ComparisonBarChart from "@/components/SellChart/ComparisonBarChart";
+import ActionButtons from "@/components/ActionButtons";
 
 function SellHouseContent() {
   const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const router = useRouter();
   const [formValues, setFormValues] = useState(null);
 
   useEffect(() => {
@@ -70,24 +66,11 @@ function SellHouseContent() {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center py-6 border-t border-gray-200 gap-4 mt-8">
-            <Button
-              onClick={() => handleShare(formValues, pathname)}
-              className="bg-blue-600 hover:bg-blue-700 hover:cursor-pointer"
-            >
-              Share Custom Values
-            </Button>
-            <Button
-              onClick={() => {
-                setFormValues({
-                  ...defaultSellHouseValues,
-                });
-                router.push("/sell-house");
-              }}
-              variant="outline"
-              className="hover:cursor-pointer"
-            >
-              Reset to Defaults
-            </Button>
+            <ActionButtons
+              formValues={formValues}
+              setFormValues={setFormValues}
+              resetDefaults={defaultSellHouseValues}
+            />
           </div>
 
           {/* Footnote */}
