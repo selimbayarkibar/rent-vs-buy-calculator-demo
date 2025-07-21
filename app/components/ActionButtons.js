@@ -8,9 +8,21 @@ export default function ActionButtons({
   formValues,
   setFormValues,
   resetDefaults,
+  onReset,
 }) {
   const router = useRouter();
   const pathname = usePathname();
+
+  const handleReset = () => {
+    if (onReset) {
+      // Use custom reset handler if provided (for valuation page)
+      onReset();
+    } else {
+      // Default reset behavior (for sell business page)
+      setFormValues(resetDefaults);
+    }
+    router.push(pathname);
+  };
 
   return (
     <>
@@ -21,10 +33,7 @@ export default function ActionButtons({
         Share Custom Values
       </Button>
       <Button
-        onClick={() => {
-          setFormValues(resetDefaults);
-          router.push(pathname);
-        }}
+        onClick={handleReset}
         variant="outline"
         className="hover:cursor-pointer"
       >

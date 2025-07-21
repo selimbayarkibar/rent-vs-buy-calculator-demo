@@ -1,0 +1,46 @@
+{
+  "Retail": {
+    "sde": 2.88,
+    "revenue": 0.55
+  },
+  "Professional Services": {
+    "sde": 3.1,
+    "revenue": 0.9
+  },
+  "Healthcare": {
+    "sde": 3.2,
+    "revenue": 1.0
+  },
+  "Manufacturing": {
+    "sde": 3.4,
+    "revenue": 1.1
+  },
+  "Technology": {
+    "sde": 3.5,
+    "revenue": 1.2
+  },
+  "Construction": {
+    "sde": 3.0,
+    "revenue": 0.85
+  },
+  "Transportation": {
+    "sde": 3.1,
+    "revenue": 0.9
+  },
+  "Real Estate": {
+    "sde": 2.9,
+    "revenue": 0.7
+  },
+  "Restaurant/Food Service": {
+    "sde": 2.75,
+    "revenue": 0.5
+  },
+  "Service Business": {
+    "sde": 2.95,
+    "revenue": 0.8
+  },
+  "Wholesale/Distribution": {
+    "sde": 3.25,
+    "revenue": 1.0
+  }
+}

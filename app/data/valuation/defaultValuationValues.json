@@ -1,0 +1,17 @@
+{
+  "businessName": "",
+  "years": null,
+  "industry": "",
+  "subIndustry": "",
+  "locationLabel": "",
+  "locationMultiplier": null,
+  "clientsPerYear": null,
+  "financialMetric": "",
+  "metricValue": null,
+  "assets": null,
+  "liabilities": null,
+  "recurringRevenue": false,
+  "proprietaryTech": false,
+  "strongBrand": false,
+  "managementTeam": false
+}

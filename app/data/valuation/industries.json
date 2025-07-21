@@ -1,0 +1,114 @@
+[
+  {
+    "name": "Retail",
+    "subIndustries": [
+      "E-commerce",
+      "Brick & Mortar",
+      "Specialty Retail",
+      "Food & Beverage",
+      "Clothing & Apparel"
+    ]
+  },
+  {
+    "name": "Professional Services",
+    "subIndustries": [
+      "Consulting",
+      "Accounting",
+      "Legal",
+      "Marketing Agency",
+      "IT Services",
+      "Engineering"
+    ]
+  },
+  {
+    "name": "Healthcare",
+    "subIndustries": [
+      "Medical Practice",
+      "Dental Practice",
+      "Home Healthcare",
+      "Medical Equipment",
+      "Veterinary"
+    ]
+  },
+  {
+    "name": "Manufacturing",
+    "subIndustries": [
+      "Light Manufacturing",
+      "Custom Manufacturing",
+      "Food Processing",
+      "Industrial",
+      "Metal Products"
+    ]
+  },
+  {
+    "name": "Technology",
+    "subIndustries": [
+      "SaaS",
+      "Software Development",
+      "IT Infrastructure",
+      "Tech Support",
+      "Web Services"
+    ]
+  },
+  {
+    "name": "Construction",
+    "subIndustries": [
+      "General Contracting",
+      "Specialty Trade",
+      "Home Services",
+      "Commercial",
+      "Landscaping"
+    ]
+  },
+  {
+    "name": "Transportation",
+    "subIndustries": [
+      "Trucking",
+      "Logistics",
+      "Moving Services",
+      "Delivery",
+      "Freight"
+    ]
+  },
+  {
+    "name": "Real Estate",
+    "subIndustries": [
+      "Property Management",
+      "Brokerage",
+      "Development",
+      "Investment",
+      "Rental Properties"
+    ]
+  },
+  {
+    "name": "Restaurant/Food Service",
+    "subIndustries": [
+      "Full Service",
+      "Quick Service",
+      "Fast Casual",
+      "Catering",
+      "Food Truck",
+      "Bar/Nightclub"
+    ]
+  },
+  {
+    "name": "Service Business",
+    "subIndustries": [
+      "Cleaning Services",
+      "Personal Services",
+      "Business Services",
+      "Auto Services",
+      "Home Services"
+    ]
+  },
+  {
+    "name": "Wholesale/Distribution",
+    "subIndustries": [
+      "Food Distribution",
+      "Industrial Supplies",
+      "Consumer Goods",
+      "Import/Export",
+      "B2B Distribution"
+    ]
+  }
+]

@@ -2,13 +2,15 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+
 import NavBar from "@/components/NavBar";
-import defaultSellHouseValues from "@/data/defaultSellHouseValues.json";
+import ActionButtons from "@/components/ActionButtons";
+import defaultSellHouseValues from "@/data/sellHouse/defaultSellHouseValues.json";
 import calculateSellHouseResults from "@/lib/sellHouse/sellHouseCalculations";
+
 import SellHouseForm from "@/components/SellHouse/SellHouseForm";
 import SellHouseResults from "@/components/SellHouse/SellHouseResults";
 import ComparisonBarChart from "@/components/SellChart/ComparisonBarChart";
-import ActionButtons from "@/components/ActionButtons";
 
 function SellHouseContent() {
   const searchParams = useSearchParams();

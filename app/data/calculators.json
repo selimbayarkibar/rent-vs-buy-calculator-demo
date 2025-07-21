@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Sell Your House Calculator",
+    "description": "Calculate potential savings with V when selling your house.",
+    "href": "/sell-house",
+    "image": "/assets/sell-house.png"
+  },
+  {
+    "title": "Sell Your Business Calculator",
+    "description": "Calculate potential savings with V when selling your business.",
+    "href": "/sell-business",
+    "image": "/assets/sell-business.png"
+  },
+  {
+    "title": "Small Business Valuation Calculator",
+    "description": "Get an estimated valuation range for your business based on industry standards and key metrics.",
+    "href": "/valuation",
+    "image": "/assets/valuation.png"
+  }
+]

@@ -1,37 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import dynamic from "next/dynamic";
 import Card from "@/components/ui/Card";
+import calculators from "@/data/calculators.json";
 
 const MotionDiv = dynamic(
   () => import("framer-motion").then((fm) => fm.motion.div),
   { ssr: false }
 );
-
-const calculators = [
-  {
-    title: "Sell Your House Calculator",
-    description: "Calculate potential savings with V when selling your house.",
-    href: "/sell-house",
-    image: "/assets/sell-house.png",
-  },
-  {
-    title: "Sell Your Business Calculator",
-    description:
-      "Calculate potential savings with V when selling your business.",
-    href: "/sell-business",
-    image: "/assets/sell-business.png",
-  },
-  {
-    title: "Small Business Valuation Calculator",
-    description:
-      "Get an estimated valuation range for your business based on industry standards and key metrics.",
-    href: "/valuation",
-    image: "/assets/valuation.png",
-  },
-];
 
 const fadeIn = (delay) => ({
   hidden: { opacity: 0, y: 30 },
@@ -73,23 +50,12 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
             className="transform transition duration-300 w-full lg:w-1/3"
           >
-            <Card href={calc.href}>
-              <div className="flex justify-center mb-4">
-                <Image
-                  src={calc.image}
-                  alt={calc.title}
-                  width={80}
-                  height={80}
-                  className="rounded-md"
-                />
-              </div>
-              <h2 className="text-xl font-semibold mb-2 text-gray-900 text-center">
-                {calc.title}
-              </h2>
-              <p className="text-gray-600 mb-6 text-sm text-center">
-                {calc.description}
-              </p>
-            </Card>
+            <Card
+              href={calc.href}
+              src={calc.image}
+              title={calc.title}
+              desc={calc.description}
+            />
           </MotionDiv>
         ))}
       </div>

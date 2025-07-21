@@ -182,3 +182,35 @@ export function ConditionalInput({ condition, children }) {
     </div>
   );
 }
+
+export function NumberInput({
+  value,
+  onChange,
+  placeholder = "0",
+  decimalScale = 0,
+  allowNegative = false,
+  ...props
+}) {
+  const [isFocused, setIsFocused] = useState(false);
+  const displayValue = isFocused && value === 0 ? "" : value;
+
+  return (
+    <div className="w-full">
+      <NumericFormat
+        value={displayValue}
+        decimalScale={decimalScale}
+        allowNegative={allowNegative}
+        placeholder={placeholder}
+        onFocus={() => setIsFocused(true)}
+        onBlur={(e) => {
+          setIsFocused(false);
+          const raw = e.target.value?.replace(/[^0-9.]/g, "");
+          if (!raw || isNaN(Number(raw))) onChange(0);
+        }}
+        onValueChange={({ floatValue }) => onChange(floatValue ?? "")}
+        className="peer w-full border border-gray-500 py-2 px-4 text-md bg-white mt-4 focus:border-blue-600 focus:bg-blue-50 focus:ring-2 focus:ring-blue-500"
+        {...props}
+      />
+    </div>
+  );
+}

@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { CalculatorForm } from "@/components/RentVsBuy/CalculatorForm";
 import RentVsBuyGraph from "@/components/RentVsBuy/ResultChart";
 import ResultsTable from "@/components/RentVsBuy/ResultsTable";
-import defaultValues from "@/data/defaultValues.json";
+import defaultValues from "@/data/rentVsBuy/defaultValues.json";
 import NavBar from "@/components/NavBar";
 import ActionButtons from "@/components/ActionButtons";
 

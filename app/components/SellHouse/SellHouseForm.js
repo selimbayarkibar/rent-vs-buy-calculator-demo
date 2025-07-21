@@ -1,5 +1,4 @@
 "use client";
-import { useState, useEffect } from "react";
 import { Label } from "@/components/ui/label";
 import { CurrencyInput } from "@/components/ui/formattedInput";
 import {
@@ -20,7 +19,7 @@ export default function SellHouseForm({ values, onChange }) {
     <div className="space-y-6 bg-[#ede8db]">
       <div className="border p-4 rounded-lg">
         {/* Home Section */}
-        <h2 className="text-lg font-semibold mb-4">Home Info</h2>
+        <h2 className="text-lg font-semibold mb-4">🏠 Home Info</h2>
 
         {/* Home State */}
         <div className="mt-4">

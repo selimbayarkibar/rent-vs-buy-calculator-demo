@@ -6,7 +6,7 @@ import MortgageForm from "@/components/Mortgage/MortgageForm";
 import MortgageChart from "@/components/Mortgage/MortgageChart";
 import MortgageTable from "@/components/Mortgage/MortgageTable";
 import NavBar from "@/components/NavBar";
-import defaultMortgageValues from "@/data/defaultMortgageValues.json";
+import defaultMortgageValues from "@/data/mortgage/defaultMortgageValues.json";
 import { getCalculatedValues } from "@/lib/mortgage/mortgageCalculations";
 import ActionButtons from "@/components/ActionButtons";
 

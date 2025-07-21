@@ -19,7 +19,7 @@ export default function SellBusinessForm({ values, onChange }) {
     <div className="space-y-6 bg-[#ede8db]">
       <div className="border p-4 rounded-lg">
         {/* Business Section */}
-        <h2 className="text-lg font-semibold mb-4">Business Info</h2>
+        <h2 className="text-lg font-semibold mb-4">🏢 Business Info</h2>
 
         {/* Business State */}
         <div className="mt-4">
