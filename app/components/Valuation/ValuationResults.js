@@ -30,7 +30,7 @@ export default function ValuationResults({ results, businessName }) {
             "N/A"}
         </p>
       </div>
-      <div className="bg-[#801deb] text-white rounded-xl p-6 text-center">
+      <div className="bg-violate-500 text-white rounded-xl p-6 text-center">
         <p className="font-semibold">Most Likely</p>
         <p className="text-3xl font-bold">
           $
@@ -38,7 +38,7 @@ export default function ValuationResults({ results, businessName }) {
             "N/A"}
         </p>
       </div>
-      <div className="bg-[#d0a4ff] text-black rounded-xl p-6 text-center">
+      <div className="bg-violate-100 text-black rounded-xl p-6 text-center">
         <p className="font-semibold">High Range</p>
         <p className="text-3xl font-bold">
           $

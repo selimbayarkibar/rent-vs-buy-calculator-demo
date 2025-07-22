@@ -7,10 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        beige: "#ede8db",
-        customViolet: "#801deb",
-      },
+      colors: {},
     },
   },
   plugins: [require("tailwindcss-animate")],

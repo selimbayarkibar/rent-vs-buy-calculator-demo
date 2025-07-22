@@ -6,6 +6,13 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Add your custom colors here */
+  --color-violate-100: #d0a4ff;
+  --color-violate-500: #801deb;
+  --color-violate-800: #5400b0;
+  --color-beige: #ede8db;
+  --color-custom-lilac: #b069e7;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);

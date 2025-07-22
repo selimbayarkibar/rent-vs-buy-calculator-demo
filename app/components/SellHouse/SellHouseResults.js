@@ -1,7 +1,7 @@
 export default function SellHouseResults({ results }) {
   return (
     <div className="mt-12 rounded-lg space-y-4 text-lg">
-      <div className="bg-[#801deb] text-white rounded-xl p-6">
+      <div className="bg-violate-500 text-white rounded-xl p-6">
         <p className="font-semibold">V Impact (Your Savings)</p>
         <p className="text-3xl font-bold">
           $
@@ -10,7 +10,7 @@ export default function SellHouseResults({ results }) {
           })}
         </p>
       </div>
-      <div className="bg-[#d0a4ff] text-black rounded-xl p-6">
+      <div className="bg-violate-100 text-black rounded-xl p-6">
         <p className="font-semibold">Money Left in your Pocket with V</p>
         <p className="text-3xl font-bold">
           $

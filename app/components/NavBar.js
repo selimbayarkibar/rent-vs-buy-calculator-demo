@@ -18,7 +18,7 @@ export default function NavBar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#801DEB] border-b border-gray-200 px-4 py-3 flex justify-between items-center shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-violate-500 border-b border-gray-200 px-4 py-3 flex justify-between items-center shadow-sm">
       <div className="flex items-center gap-6">
         <Image
           src="/assets/Logotype-white.png"
@@ -35,7 +35,7 @@ export default function NavBar() {
             className={`text-md font-medium transition-colors ${
               pathname === "/rent-vs-buy"
                 ? "text-black hover:cursor-pointer"
-                : "text-white hover:text-[#D0A4FF] hover:cursor-pointer"
+                : "text-white hover:text-violate-100 hover:cursor-pointer"
             }`}
           >
             Rent vs Buy Calculator
@@ -46,7 +46,7 @@ export default function NavBar() {
             className={`text-md font-medium transition-colors ${
               pathname === "/mortgage"
                 ? "text-black hover:cursor-pointer"
-                : "text-white hover:text-[#D0A4FF] hover:cursor-pointer"
+                : "text-white hover:text-violate-100 hover:cursor-pointer"
             }`}
           >
             Mortgage Calculator
@@ -57,7 +57,7 @@ export default function NavBar() {
             className={`text-md font-medium transition-colors ${
               pathname === "/sell-house"
                 ? "text-black hover:cursor-pointer"
-                : "text-white hover:text-[#D0A4FF] hover:cursor-pointer"
+                : "text-white hover:text-violate-100 hover:cursor-pointer"
             }`}
           >
             Sell Your House
@@ -68,7 +68,7 @@ export default function NavBar() {
             className={`text-md font-medium transition-colors ${
               pathname === "/sell-business"
                 ? "text-black hover:cursor-pointer"
-                : "text-white hover:text-[#D0A4FF] hover:cursor-pointer"
+                : "text-white hover:text-violate-100 hover:cursor-pointer"
             }`}
           >
             Sell Your Business
@@ -79,7 +79,7 @@ export default function NavBar() {
             className={`text-md font-medium transition-colors ${
               pathname === "/valuation"
                 ? "text-black hover:cursor-pointer"
-                : "text-white hover:text-[#D0A4FF] hover:cursor-pointer"
+                : "text-white hover:text-violate-100 hover:cursor-pointer"
             }`}
           >
             Business Valuation

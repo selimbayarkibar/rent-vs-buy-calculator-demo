@@ -30,7 +30,7 @@ export default function Home() {
           height={64}
           className="mx-auto mb-4"
         />
-        <h1 className="text-3xl font-bold text-gray-800">
+        <h1 className="text-3xl font-bold text-violate-500">
           Vicunous Calculators
         </h1>
         <p className="text-gray-600 text-lg mt-2">

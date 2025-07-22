@@ -117,7 +117,7 @@ export function CalculatorForm({ values, onChange }) {
   }
 
   return (
-    <div className="space-y-6 bg-[#ede8db]">
+    <div className="space-y-6 bg-beige">
       <div className="border p-4 rounded-lg">
         {/* Renting Section */}
         <h2 className="text-lg font-semibold mb-4">Renting</h2>

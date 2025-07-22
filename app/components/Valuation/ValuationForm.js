@@ -39,7 +39,7 @@ export default function ValuationForm({ values, onChange, onCalculate }) {
   };
 
   return (
-    <div className="space-y-6 bg-[#ede8db]">
+    <div className="space-y-6 bg-beige">
       {/* --- BASIC INFO --- */}
       <div className="border p-4 rounded-lg">
         <h2 className="text-lg font-semibold mb-4">📋 Basic Information</h2>
@@ -286,7 +286,7 @@ export default function ValuationForm({ values, onChange, onCalculate }) {
             type="button"
             className={`w-full py-3 px-6 text-lg font-semibold rounded-lg text-white transition-all ${
               isFormComplete()
-                ? "bg-[#801deb] hover:bg-[#6e15c9] hover:cursor-pointer"
+                ? "bg-violate-500 hover:bg-violate-800 hover:cursor-pointer"
                 : "bg-gray-400 cursor-not-allowed"
             }`}
             disabled={!isFormComplete()}
