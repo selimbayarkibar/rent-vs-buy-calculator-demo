@@ -3,18 +3,30 @@
     "title": "Sell Your House Calculator",
     "description": "Calculate potential savings with V when selling your house.",
     "href": "/sell-house",
-    "image": "/assets/sell-house.png"
+    "image": "/assets/sell-house.svg"
   },
   {
     "title": "Sell Your Business Calculator",
     "description": "Calculate potential savings with V when selling your business.",
     "href": "/sell-business",
-    "image": "/assets/sell-business.png"
+    "image": "/assets/sell-business.svg"
   },
   {
     "title": "Small Business Valuation Calculator",
     "description": "Get an estimated valuation range for your business based on industry standards and key metrics.",
     "href": "/valuation",
-    "image": "/assets/valuation.png"
+    "image": "/assets/valuation.svg"
+  },
+  {
+    "title": "Fundrasining Readiness Assessment",
+    "description": "Single-page version of the fundraising readiness assessment. Score a founder across storytelling, trust, market grasp, investor relations, persistence, and coachability.",
+    "href": "/assessment",
+    "image": "/assets/fundraising-readiness-logo.svg"
+  },
+  {
+    "title": "Multi Page Fundrasining Readiness Assessment",
+    "description": "Multi-page flow of the same assessment, guiding reviewers screen-by-screen with progress tracking and a results summary.",
+    "href": "/mpAssessment",
+    "image": "/assets/multi-page-assessment-logo.svg"
   }
 ]

@@ -37,7 +37,7 @@ function SellHouseContent() {
   const results = calculateSellHouseResults(formValues);
 
   return (
-    <main className="px-4 pb-8 min-h-screen pt-24 sm:pt-20">
+    <main className="px-4 pb-8 min-h-screen pt-18 sm:pt-16">
       {/* Page Title */}
       <h1 className="text-2xl font-semibold mb-6 text-left">
         Sell Your House Calculator

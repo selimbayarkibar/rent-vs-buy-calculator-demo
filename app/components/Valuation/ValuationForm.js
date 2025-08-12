@@ -16,7 +16,6 @@ import financialMetricsData from "@/data/valuation/financialMetrics.json";
 
 export default function ValuationForm({ values, onChange, onCalculate }) {
   const handleChange = (field, value) => {
-    console.log(`Changing ${field} to:`, value); // Debug log
     onChange({ ...values, [field]: value });
   };
 
@@ -294,6 +293,11 @@ export default function ValuationForm({ values, onChange, onCalculate }) {
           >
             Calculate Valuation
           </button>
+          {!isFormComplete() && (
+            <p className="mt-2 text-sm text-gray-500">
+              Please complete all fields to calculate valuation.
+            </p>
+          )}
         </div>
       </div>
     </div>

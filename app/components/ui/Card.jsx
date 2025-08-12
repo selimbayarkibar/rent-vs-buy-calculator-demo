@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Card({ href, src, title, desc, className = "" }) {
   return (
     <div
-      className={`p-6 h-full flex flex-col justify-between border border-gray-200 shadow-md rounded-xl bg-white hover:shadow-lg ${className}`}
+      className={`p-6 h-full flex flex-col justify-between border border-gray-200 shadow-md rounded-xl bg-gray-100 hover:shadow-lg ${className}`}
     >
       <div className="flex-1 flex flex-col items-center">
         <div className="justify-center mb-4 relative">
@@ -22,7 +22,7 @@ export default function Card({ href, src, title, desc, className = "" }) {
       </div>
       {href && (
         <a href={href} className="mt-6 block">
-          <button className="w-full bg-[#801deb] text-white py-2 px-4 rounded-md hover:bg-[#5400b0] transition hover:cursor-pointer">
+          <button className="w-full bg-violate-500 text-white py-2 px-4 rounded-md hover:bg-violate-800 transition hover:cursor-pointer">
             Open Calculator
           </button>
         </a>

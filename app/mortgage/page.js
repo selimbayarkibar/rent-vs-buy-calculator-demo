@@ -76,7 +76,7 @@ function MortgageContent() {
   const calculatedValues = getCalculatedValues(formValues);
 
   return (
-    <main className="p-4 lg:p-8 min-h-screen my-12 ">
+    <main className="px-4 pb-8 min-h-screen pt-18 sm:pt-16">
       {/* Page Title */}
       <h1 className="text-2xl font-semibold mb-6 text-left">
         Mortgage Calculator

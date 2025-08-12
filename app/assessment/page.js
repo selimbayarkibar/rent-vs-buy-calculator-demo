@@ -4,20 +4,31 @@ import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 import NavBar from "@/components/NavBar";
-import ValuationForm from "@/components/Valuation/ValuationForm";
-import ValuationResults from "@/components/Valuation/ValuationResults";
+import AssessmentForm from "@/components/Assessment/AssessmentForm";
+import AssessmentResults from "@/components/Assessment/AssessmentResults";
 import ActionButtons from "@/components/ActionButtons";
-import calculateValuationResults from "@/lib/valuation/valuationCalculations";
-import defaultValues from "@/data/valuation/defaultValuationValues.json";
+import calculateAssessmentResults from "@/lib/assessment/assessmentCalculations";
 
-function ValuationContent() {
+// Default values for the assessment form
+const defaultValues = {
+  founderName: "",
+  pitchCompelling: null,
+  toughQuestions: null,
+  credibility: null,
+  marketUnderstanding: null,
+  persistence: null,
+  investorRelations: null,
+  coachability: null,
+};
+
+function AssessmentContent() {
   const searchParams = useSearchParams();
   const [formValues, setFormValues] = useState({ ...defaultValues });
   const [showResults, setShowResults] = useState(false);
   const [resetKey, setResetKey] = useState(0);
 
   useEffect(() => {
-    const values = { ...defaultValues }; // or defaultSellBusinessValues for sell business page
+    const values = { ...defaultValues };
 
     for (const [key, value] of searchParams.entries()) {
       // Handle boolean values first
@@ -52,18 +63,18 @@ function ValuationContent() {
     setResetKey((prev) => prev + 1);
   };
 
-  const results = showResults ? calculateValuationResults(formValues) : null;
+  const results = showResults ? calculateAssessmentResults(formValues) : null;
 
   return (
     <main className="px-4 pb-8 min-h-screen pt-18 sm:pt-16">
       <h1 className="text-2xl font-semibold mb-6 text-left">
-        Business Valuation Calculator
+        Fundraising Readiness Assessment
       </h1>
 
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col lg:flex-row">
         {/* Form Section */}
         <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
-          <ValuationForm
+          <AssessmentForm
             key={resetKey}
             values={formValues}
             onChange={handleFormChange}
@@ -72,21 +83,21 @@ function ValuationContent() {
         </div>
 
         {/* Results Section */}
-        <div className="w-full h-full lg:w-1/2 flex flex-col text-md border-2 md:ml-6 px-4 py-6">
+        <div className="w-full h-full lg:w-1/2 flex flex-col text-md border-2 lg:ml-6 px-4 py-6">
           {showResults ? (
-            <ValuationResults
+            <AssessmentResults
               results={results}
-              businessName={formValues.businessName}
+              founderName={formValues.founderName}
             />
           ) : (
             <div className="text-gray-600 text-center">
-              Enter your business details and click
-              <strong> Calculate Valuation</strong> to see results here.
+              Enter the founder's assessment details and click
+              <strong> Calculate Assessment</strong> to see results here.
             </div>
           )}
 
           {/* Action Buttons */}
-          <div className="flex flex-col md:flex-row items-center border-t justify-center pt-6 border-gray-200 gap-4 mt-6">
+          <div className="flex flex-col lg:flex-row items-center border-t justify-center pt-6 border-gray-200 gap-4 mt-6">
             <ActionButtons
               formValues={formValues}
               setFormValues={setFormValues}
@@ -100,14 +111,14 @@ function ValuationContent() {
   );
 }
 
-export default function ValuationPage() {
+export default function AssessmentPage() {
   return (
     <>
       <NavBar />
       <Suspense
-        fallback={<div className="p-8 pt-24">Loading calculator...</div>}
+        fallback={<div className="p-8 pt-24">Loading assessment...</div>}
       >
-        <ValuationContent />
+        <AssessmentContent />
       </Suspense>
     </>
   );

@@ -21,7 +21,7 @@ const fadeIn = (delay) => ({
 
 export default function Home() {
   return (
-    <main className="min-h-screen py-6 px-4 lg:px-24 bg-[#f9fbfc]">
+    <main className="min-h-screen py-6 px-4 lg:px-24 bg-gradient-to-br from-violate-500 via-violate-100 to-violate-800">
       <div className="text-center mb-12">
         <Image
           src="/assets/Logotype-color.png"
@@ -30,17 +30,17 @@ export default function Home() {
           height={64}
           className="mx-auto mb-4"
         />
-        <h1 className="text-3xl font-bold text-violate-500">
+        <h1 className="text-3xl font-bold text-violate-800">
           Vicunous Calculators
         </h1>
-        <p className="text-gray-600 text-lg mt-2">
+        <p className="text-black text-lg mt-2">
           Access calculators and educational content to optimize your wealth
           management
         </p>
       </div>
 
       {/* Responsive Calculator Layout */}
-      <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch">
+      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
         {calculators.map((calc, index) => (
           <MotionDiv
             key={calc.title}
@@ -48,7 +48,7 @@ export default function Home() {
             initial="hidden"
             animate="show"
             whileHover={{ scale: 1.05 }}
-            className="transform transition duration-300 w-full lg:w-1/3"
+            className="h-full"
           >
             <Card
               href={calc.href}

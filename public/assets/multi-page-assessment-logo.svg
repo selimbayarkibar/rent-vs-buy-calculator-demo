@@ -1,0 +1,41 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="multiPageGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7C2D92;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A855F7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect x="4" y="4" width="56" height="56" rx="14" ry="14" fill="url(#multiPageGradient)"/>
+  
+  <!-- Document stack with better depth -->
+  <rect x="20" y="20" width="24" height="30" fill="white" rx="2" opacity="0.3"/>
+  <rect x="18" y="18" width="24" height="30" fill="white" rx="2" opacity="0.6"/>
+  <rect x="16" y="16" width="24" height="30" fill="white" rx="2"/>
+  
+  <!-- Report cover design -->
+  <rect x="18" y="18" width="20" height="4" fill="#7C2D92"/>
+  <text x="28" y="21" font-family="Arial, sans-serif" font-size="3" text-anchor="middle" fill="white">ASSESSMENT</text>
+  
+  <!-- Progress bars showing completion -->
+  <rect x="18" y="26" width="16" height="2" fill="#E5E7EB" rx="1"/>
+  <rect x="18" y="26" width="12" height="2" fill="#10B981" rx="1"/>
+  
+  <rect x="18" y="30" width="16" height="2" fill="#E5E7EB" rx="1"/>
+  <rect x="18" y="30" width="14" height="2" fill="#10B981" rx="1"/>
+  
+  <rect x="18" y="34" width="16" height="2" fill="#E5E7EB" rx="1"/>
+  <rect x="18" y="34" width="10" height="2" fill="#F59E0B" rx="1"/>
+  
+  <!-- Mini chart -->
+  <rect x="18" y="38" width="2" height="4" fill="#7C2D92" rx="0.5"/>
+  <rect x="21" y="40" width="2" height="2" fill="#7C2D92" rx="0.5"/>
+  <rect x="24" y="36" width="2" height="6" fill="#7C2D92" rx="0.5"/>
+  <rect x="27" y="39" width="2" height="3" fill="#7C2D92" rx="0.5"/>
+  
+  <!-- Score indicator -->
+  <circle cx="48" cy="16" r="8" fill="white" opacity="0.95"/>
+  <text x="48" y="18" font-family="Arial, sans-serif" font-size="6" font-weight="bold" text-anchor="middle" fill="#7C2D92">85</text>
+  <text x="48" y="21" font-family="Arial, sans-serif" font-size="3" text-anchor="middle" fill="#7C2D92">%</text>
+</svg>

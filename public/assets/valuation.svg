@@ -1,0 +1,44 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="valuationGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect x="4" y="4" width="56" height="56" rx="14" ry="14" fill="url(#valuationGradient)"/>
+  
+  <!-- Calculator/Dashboard concept -->
+  <!-- Main screen -->
+  <rect x="14" y="18" width="32" height="20" fill="white" rx="2"/>
+  
+  <!-- Display showing value -->
+  <rect x="16" y="20" width="28" height="6" fill="#F3F4F6" rx="1"/>
+  <text x="18" y="25" font-family="monospace" font-size="6" fill="#059669">$1,234,567</text>
+  
+  <!-- Chart bars -->
+  <rect x="18" y="29" width="3" height="6" fill="#059669" rx="0.5"/>
+  <rect x="23" y="31" width="3" height="4" fill="#10B981" rx="0.5"/>
+  <rect x="28" y="27" width="3" height="8" fill="#059669" rx="0.5"/>
+  <rect x="33" y="30" width="3" height="5" fill="#10B981" rx="0.5"/>
+  <rect x="38" y="26" width="3" height="9" fill="#059669" rx="0.5"/>
+  
+  <!-- Calculator buttons -->
+  <circle cx="18" cy="42" r="2" fill="#E5E7EB"/>
+  <circle cx="24" cy="42" r="2" fill="#E5E7EB"/>
+  <circle cx="30" cy="42" r="2" fill="#E5E7EB"/>
+  <circle cx="36" cy="42" r="2" fill="#059669"/>
+  <circle cx="42" cy="42" r="2" fill="#059669"/>
+  
+  <circle cx="18" cy="48" r="2" fill="#E5E7EB"/>
+  <circle cx="24" cy="48" r="2" fill="#E5E7EB"/>
+  <circle cx="30" cy="48" r="2" fill="#E5E7EB"/>
+  <circle cx="36" cy="48" r="2" fill="#059669"/>
+  <circle cx="42" cy="48" r="2" fill="#059669"/>
+  
+  <!-- Magnifying glass for valuation -->
+  <circle cx="48" cy="16" r="6" fill="white" opacity="0.95"/>
+  <circle cx="48" cy="16" r="3" fill="none" stroke="#059669" stroke-width="1.5"/>
+  <line x1="50.5" y1="18.5" x2="53" y2="21" stroke="#059669" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

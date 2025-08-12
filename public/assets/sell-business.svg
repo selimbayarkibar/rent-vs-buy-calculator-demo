@@ -1,0 +1,52 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="businessGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect x="4" y="4" width="56" height="56" rx="14" ry="14" fill="url(#businessGradient)"/>
+  
+  <!-- Office building -->
+  <!-- Main building -->
+  <rect x="22" y="18" width="16" height="28" fill="white"/>
+  
+  <!-- Building top -->
+  <rect x="20" y="16" width="20" height="4" fill="white"/>
+  
+  <!-- Side building -->
+  <rect x="38" y="24" width="8" height="22" fill="white" opacity="0.8"/>
+  
+  <!-- Windows grid for main building -->
+  <rect x="24" y="22" width="2" height="2" fill="#4F46E5"/>
+  <rect x="28" y="22" width="2" height="2" fill="#4F46E5"/>
+  <rect x="32" y="22" width="2" height="2" fill="#4F46E5"/>
+  <rect x="24" y="26" width="2" height="2" fill="#4F46E5"/>
+  <rect x="28" y="26" width="2" height="2" fill="#4F46E5"/>
+  <rect x="32" y="26" width="2" height="2" fill="#4F46E5"/>
+  <rect x="24" y="30" width="2" height="2" fill="#4F46E5"/>
+  <rect x="28" y="30" width="2" height="2" fill="#4F46E5"/>
+  <rect x="32" y="30" width="2" height="2" fill="#4F46E5"/>
+  <rect x="24" y="34" width="2" height="2" fill="#4F46E5"/>
+  <rect x="28" y="34" width="2" height="2" fill="#4F46E5"/>
+  <rect x="32" y="34" width="2" height="2" fill="#4F46E5"/>
+  
+  <!-- Side building windows -->
+  <rect x="40" y="28" width="1.5" height="1.5" fill="#4F46E5"/>
+  <rect x="42.5" y="28" width="1.5" height="1.5" fill="#4F46E5"/>
+  <rect x="40" y="32" width="1.5" height="1.5" fill="#4F46E5"/>
+  <rect x="42.5" y="32" width="1.5" height="1.5" fill="#4F46E5"/>
+  <rect x="40" y="36" width="1.5" height="1.5" fill="#4F46E5"/>
+  <rect x="42.5" y="36" width="1.5" height="1.5" fill="#4F46E5"/>
+  
+  <!-- Entrance -->
+  <rect x="28" y="38" width="6" height="8" fill="#4F46E5"/>
+  
+  <!-- Briefcase icon overlay -->
+  <circle cx="16" cy="48" r="8" fill="white" opacity="0.95"/>
+  <rect x="12" y="46" width="8" height="5" fill="#4F46E5" rx="1"/>
+  <rect x="14" y="44" width="4" height="2" fill="#4F46E5" rx="0.5"/>
+  <line x1="12" y1="48" x2="20" y2="48" stroke="white" stroke-width="0.5"/>
+</svg>

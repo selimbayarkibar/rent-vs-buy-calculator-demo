@@ -1,0 +1,155 @@
+[
+  {
+    "id": "pitchCompelling",
+    "category": "💬 Pitch & Storytelling",
+    "question": "How compelling is this founder when pitching their vision to investors?",
+    "options": [
+      {
+        "value": 1,
+        "label": "Struggles to engage investors, unclear narrative"
+      },
+      { "value": 2, "label": "Basic pitch skills, somewhat engaging" },
+      { "value": 3, "label": "Good storyteller, decent investor engagement" },
+      {
+        "value": 4,
+        "label": "Very compelling pitcher, investors listen intently"
+      },
+      {
+        "value": 5,
+        "label": "Exceptional storyteller who captivates investors"
+      }
+    ]
+  },
+  {
+    "id": "toughQuestions",
+    "category": "💬 Pitch & Storytelling",
+    "question": "How well does this founder handle tough questions from investors?",
+    "options": [
+      { "value": 1, "label": "Gets flustered, defensive, or evasive" },
+      { "value": 2, "label": "Struggles but attempts to answer" },
+      { "value": 3, "label": "Handles most questions adequately" },
+      { "value": 4, "label": "Confident and thoughtful responses" },
+      {
+        "value": 5,
+        "label": "Turns tough questions into selling opportunities"
+      }
+    ]
+  },
+  {
+    "id": "credibility",
+    "category": "✅ Credibility & Trust",
+    "question": "How credible does this founder appear to potential investors?",
+    "options": [
+      { "value": 1, "label": "Raises red flags, inconsistent information" },
+      {
+        "value": 2,
+        "label": "Some credibility concerns, limited track record"
+      },
+      { "value": 3, "label": "Generally trustworthy, decent background" },
+      { "value": 4, "label": "Strong credibility, impressive background" },
+      {
+        "value": 5,
+        "label": "Exceptional credibility, investors trust immediately"
+      }
+    ]
+  },
+  {
+    "id": "transparency",
+    "category": "✅ Credibility & Trust",
+    "question": "How transparent is this founder about risks and challenges?",
+    "options": [
+      { "value": 1, "label": "Overly optimistic, hides problems" },
+      { "value": 2, "label": "Somewhat transparent but downplays risks" },
+      { "value": 3, "label": "Balanced view of opportunities and challenges" },
+      { "value": 4, "label": "Very honest about risks while staying positive" },
+      { "value": 5, "label": "Perfect balance of transparency and confidence" }
+    ]
+  },
+  {
+    "id": "marketUnderstanding",
+    "category": "🎯 Market Understanding",
+    "question": "How well does this founder demonstrate deep market knowledge?",
+    "options": [
+      { "value": 1, "label": "Shallow understanding, generic insights" },
+      { "value": 2, "label": "Basic market knowledge, limited depth" },
+      { "value": 3, "label": "Good market understanding, some specifics" },
+      { "value": 4, "label": "Deep market insights, industry expertise" },
+      {
+        "value": 5,
+        "label": "Exceptional market expertise that impresses investors"
+      }
+    ]
+  },
+  {
+    "id": "marketSizingValidation",
+    "category": "🎯 Market Understanding",
+    "question": "How convincingly can this founder size and validate their market opportunity?",
+    "options": [
+      { "value": 1, "label": "Weak market sizing, questionable assumptions" },
+      { "value": 2, "label": "Basic market analysis, some validation" },
+      { "value": 3, "label": "Decent market sizing with some data support" },
+      { "value": 4, "label": "Strong market case with solid validation" },
+      {
+        "value": 5,
+        "label": "Compelling market story with exceptional validation"
+      }
+    ]
+  },
+  {
+    "id": "investorRelations",
+    "category": "👥 Investor Relations",
+    "question": "How effectively does this founder build relationships with investors?",
+    "options": [
+      { "value": 1, "label": "Poor networking, burns bridges" },
+      { "value": 2, "label": "Limited networking ability, few connections" },
+      { "value": 3, "label": "Decent relationship building skills" },
+      {
+        "value": 4,
+        "label": "Strong networker, builds lasting investor relationships"
+      },
+      { "value": 5, "label": "Exceptional at cultivating investor champions" }
+    ]
+  },
+  {
+    "id": "followUpMomentum",
+    "category": "👥 Investor Relations",
+    "question": "How well does this founder follow up and maintain investor momentum?",
+    "options": [
+      { "value": 1, "label": "Poor follow-up, loses investor interest" },
+      { "value": 2, "label": "Inconsistent communication with investors" },
+      { "value": 3, "label": "Regular updates, maintains some momentum" },
+      { "value": 4, "label": "Excellent follow-up, keeps investors engaged" },
+      { "value": 5, "label": "Masterful at maintaining investor excitement" }
+    ]
+  },
+  {
+    "id": "persistence",
+    "category": "⚡ Fundraising Persistence",
+    "question": "How does this founder handle fundraising rejections and setbacks?",
+    "options": [
+      { "value": 1, "label": "Gets discouraged, considers giving up" },
+      {
+        "value": 2,
+        "label": "Slows down after rejections, needs time to recover"
+      },
+      { "value": 3, "label": "Bounces back reasonably well from \"no\"s" },
+      { "value": 4, "label": "Uses rejections as learning opportunities" },
+      { "value": 5, "label": "Thrives on \"no\"s, becomes more determined" }
+    ]
+  },
+  {
+    "id": "coachability",
+    "category": "🎓 Coachability & Learning",
+    "question": "How well does this founder incorporate investor feedback?",
+    "options": [
+      { "value": 1, "label": "Defensive, dismisses investor input" },
+      { "value": 2, "label": "Somewhat receptive but slow to change" },
+      { "value": 3, "label": "Generally open to feedback and suggestions" },
+      { "value": 4, "label": "Actively seeks and implements investor advice" },
+      {
+        "value": 5,
+        "label": "Exceptional at turning feedback into improvements"
+      }
+    ]
+  }
+]
