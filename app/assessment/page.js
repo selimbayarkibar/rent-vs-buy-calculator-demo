@@ -49,7 +49,7 @@ function AssessmentContent() {
   }, [searchParams]);
 
   const handleFormChange = (newValues) => {
-    // Ensure we're creating a new object reference
+    // Ensure creating a new object reference
     setFormValues({ ...newValues });
   };
 
@@ -91,7 +91,7 @@ function AssessmentContent() {
             />
           ) : (
             <div className="text-gray-600 text-center">
-              Enter the founder's assessment details and click
+              Enter the founder&apos;s assessment details and click
               <strong> Calculate Assessment</strong> to see results here.
             </div>
           )}

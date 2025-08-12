@@ -40,7 +40,7 @@ export default function AssessmentForm({ values, onChange, onCalculate }) {
           </h1>
           <p className="text-gray-600 mb-4">
             Evaluate the intangible skills that determine fundraising success.
-            Assess the founder's ability to raise capital.
+            Assess the founder&apos;s ability to raise capital.
           </p>
           <p className="text-gray-700">
             This assessment focuses on the critical interpersonal skills and
@@ -86,7 +86,7 @@ export default function AssessmentForm({ values, onChange, onCalculate }) {
             <input
               id="founderName"
               type="text"
-              placeholder="Enter founder's name"
+              placeholder={`Enter founder's name`}
               className="peer w-full border border-gray-500 py-2 px-4 text-md bg-white focus:border-blue-600 focus:bg-blue-50 focus:ring-2 focus:ring-blue-500"
               value={values.founderName || ""}
               onChange={(e) => handleChange("founderName", e.target.value)}

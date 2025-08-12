@@ -18,7 +18,7 @@ const StartScreen = ({ onStart }) => {
           </h1>
           <p className="text-gray-600 text-lg mb-6">
             Evaluate the intangible skills that determine fundraising success.
-            Assess the founder's ability to raise capital.
+            Assess the founder&apos;s ability to raise capital.
           </p>
           <p className="text-gray-700 mb-8">
             This assessment focuses on the critical interpersonal skills and
@@ -220,7 +220,9 @@ const ResultsScreen = ({ results, founderName, onNewAssessment }) => {
             Assessment Results
           </h2>
           <p className="text-gray-600 mb-6">
-            {founderName ? `${founderName}'s comprehensive` : "Comprehensive"}{" "}
+            {founderName
+              ? `${founderName}&apos;s comprehensive`
+              : "Comprehensive"}{" "}
             founder evaluation completed
           </p>
 
